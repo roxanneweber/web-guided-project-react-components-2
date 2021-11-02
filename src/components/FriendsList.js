@@ -6,6 +6,7 @@ export default function FriendsList(props) {
   // 👉 2- What data does FriendsList need to do its job? Use destructuring
   // friends array!
   const { friends, changeStatus } = props;
+  // props = { friends: friends, changeStatus: changeStatus }
   /**
    * const friends = props.friends;
    * const changeStatus = props.changeStatus;
