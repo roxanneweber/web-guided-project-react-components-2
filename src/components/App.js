@@ -38,16 +38,28 @@ export default function App() {
 	// STRETCH - Make a helper function that returns
 	// a filtered array of friends data (filtering by search term)
 
+	const getFilteredFriends = () => {
+		const normalized = searchTerm.trim().toLowerCase();
+		if (!normalized) return friends;
+
+		return friends.filter((friend) => {
+			return friend.name.toLowerCase().includes(normalized);
+		});
+	};
+
 	return (
 		<div className='app-friends container'>
 			{/* 👉 6- Render the Search component */}
-			<Search />
+			<Search setSearchTerm={setSearchTerm} />
 
 			{/* STRETCH - Changes to the input should update the search term */}
 
 			{/* 👉 7- Render the FriendsList component */}
 			{/* first check in FriendsList component to see what data we will need for it; then, add reference to those variables in our render statement so ensure App.js has access */}
-			<FriendsList friends={friends} changeStatus={changeStatus} />
+			<FriendsList
+				friends={getFilteredFriends()}
+				changeStatus={changeStatus}
+			/>
 			{/* this statement will now 'pass down' these variables for use in the FriendsList component */}
 			{/* What prop/props does FriendsList need? */}
 		</div>
