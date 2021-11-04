@@ -24,6 +24,10 @@ export default function Friend(props) {
 						Likes:
 						<ul>
 							{/* 👉 3- Loop over the friend's hobbies and generate <li/> elements as you go */}
+							{friend.hobbies.map((hobby, index) => {
+								return <li key={index}>{hobby}</li>;
+							})}
+							{/* hobbies needs a unique id and this array doesn't have one so we add 'index' to work as an 'i' in the loop */}
 						</ul>
 					</div>
 				</div>
@@ -32,7 +36,8 @@ export default function Friend(props) {
 					{/* 👉 3- What data does the PetsList need? */}
 					{/* What is the exact name of the prop/props it expects? */}
 					{/* Is the data around here somewhere so I may pass it? */}
-					<PetsList />
+					{/* here again, I will link Pets data so that it can be used in the PetsList grandchild */}
+					<PetsList pets={friend.pets} />
 				</div>
 			</div>
 		</div>
