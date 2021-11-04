@@ -21,12 +21,17 @@ export default function App() {
 	// changes the `married` from true to false and viceversa
 
 	//* because we have to hang onto a variable to change it here, we first need to create another variable to hold the info we need
+
 	const changeStatus = (id) => {
 		//* we create a variable 'updatedFriends' and the value is equal to:
 		//* we map over all the elements in the friends data array, and we need access to all the individual object data, so we need the ...friends
 		const updatedFriends = friends.map((fr) => {
 			return fr.id === id ? { ...fr, married: !fr.married } : fr;
 		});
+
+		{
+			/* this is where we are now updating only the items changed in our virtual fr mapped array */
+		}
 		setFriends(updatedFriends);
 	};
 

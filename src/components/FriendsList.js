@@ -4,7 +4,7 @@ import Friend from './Friend';
 
 // right now this function has access to friends array and changeStatus function within props
 export default function FriendsList(props) {
-	console.log(props);
+	//console.log(props);
 
 	// 👉 2- What data does FriendsList need to do its job? Use destructuring
 	const { friends, changeStatus } = props; // now we have created two variables and added them to a props object
